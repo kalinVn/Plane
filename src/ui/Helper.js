@@ -1,5 +1,5 @@
 class Helper {
-	
+
 	static async score(prop){
 		let label = prop.label;
 		let fontFamily = prop.fontFamily;
@@ -82,7 +82,7 @@ class Helper {
 			"Press w :  Move top",
 			"Press a :  Move left",
 			"Press e :  Move bottom",
-			"Press a :  Shoot ",
+			"Press s :  Shoot ",
 			"Press d :  Start plan to move angle velocity direction ",
 			"Rotaton"
 
