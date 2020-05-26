@@ -70,8 +70,6 @@ class Tank  {
             await rocket.init(this.app, this.game, tankPos.x, tankPos.y, 270 - angle, -30, -50);
         }
     }
-	
-		
 
 }
 export default Tank;
