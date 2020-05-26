@@ -66,7 +66,7 @@ class Tank  {
             let id = "rocket";
             let rocket = new Rocket(url, id, this.game, this);
             this.tankRockets.push(rocket);
-            await this.game. che()
+            await this.game.clearCache()
             await rocket.init(this.app, this.game, tankPos.x, tankPos.y, 270 - angle, -30, -50);
         }
     }
