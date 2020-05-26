@@ -22,28 +22,8 @@ class Tank  {
         Animator.animate(this);
         this._stepDistPerShoot = 1
         this._distPerShoot = 120;
-        
-		
 	}
 
-    drawWeapon(position, obj) {
-		if(this.laser){
-			this.laser.clear();
-			this.app.stage.removeChild(this.laser);
-		}
-		this.laser = new PIXI.Graphics();
-		this.laser.lineStyle(5, 0x000000, 0.9);
-		let x = obj.x 	;
-		let y = obj.y ;
-		var v1 = new Vector2D(x, y);
-		var v2 = new Vector2D(position.x, position.y);
-		var normalVector = v2.substract(v1);
-		var unitNormalVector = normalVector.mult(1 / normalVector.length());
-		this.laser.moveTo(x, y - 22);
-		this.laser.lineTo(position.x - 35 , position.y - 22);
-        this.laser.endFill();
-        this.app.stage.addChild(this.laser);
-    }
 
 	async update(){
         this.sprite.x -= 0.5;

@@ -1,9 +1,9 @@
 import Animator from "./Animator.js";
-import Explosion from "../components/Explosion.js";
 import  Plan from "./Plan.js";
 import  Tank from "./Tank.js";
 import Vector2D from "./Vector2D.js";
 class Rocket {
+
 	constructor(url, id, game, machine) {
 		this.url = url;
 		this.id = id;
@@ -21,31 +21,12 @@ class Rocket {
 		this.sprite = new PIXI.AnimatedSprite(this.rocketFrames);
 		this.sprite.x = x + posX;
 		this.sprite.y = y + posY;
-		this.sprite.anchor.set(0.5, 0.5);
+		this.sprite.anchor.set(0.2, 0.3);
 		this.sprite.angle = angle;
 		this.app.stage.addChild(this.sprite);
 		Animator.animate(this, this.sprite)
 	}
 
-	drawWeapon(position, obj) {
-		if(this.laser){
-			this.laser.clear();
-			this.app.stage.removeChild(this.laser);
-		}
-		this.laser = new PIXI.Graphics();
-		this.laser.lineStyle(5, 0x000000, 0.9);
-		let x = obj.x 	;
-		let y = obj.y ;
-		var v1 = new Vector2D(x, y);
-		var v2 = new Vector2D(position.x, position.y);
-		var normalVector = v2.substract(v1);
-		var unitNormalVector = normalVector.mult(1 / normalVector.length());
-		this.laser.moveTo(x, y - 22);
-		this.laser.lineTo(position.x - 35 , position.y - 22);
-        this.laser.endFill();
-        this.app.stage.addChild(this.laser);
-	}
-	
 	update(){
 		if(this.machine instanceof Tank){
 			let planPos = new Vector2D(this.game.plan.sprite.x, this.game.plan.sprite.y);

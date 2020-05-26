@@ -2,14 +2,14 @@
 
 class Rudder {
 
-    constructor(app , url){
-        this.url = url;
+    constructor(app){
         this.app = app;
     }
-    
+
     async init (){
         this._isRotated = false;
-        this.sprite = await Loader.loadSprite("src/assets/spritesheet/rudder1.png");
+        let url = "src/assets/spritesheet/rudder1.png"
+        this.sprite = await Loader.loadSprite(url);
         this.sprite.moveWhenInside = true;
         this.sprite.interactive = true;
         this.sprite.buttonMode = true;

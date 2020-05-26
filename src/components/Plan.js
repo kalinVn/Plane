@@ -1,5 +1,4 @@
 import Rocket from "../components/Rocket.js";
-import Explosion from "../components/Explosion.js";
 import Animator from "./Animator.js";
 import Vector2D from "./Vector2D.js";
 class Plan {
@@ -13,6 +12,7 @@ class Plan {
         this._planeDirectionVector =new Vector2D(0,0);
         this.unitVector =new Vector2D(0, 0);
         this.bottomVect = new Vector2D(this.app.stage.height - 30, this.app.stage.width);
+        this._stopMoveWhenRotate = true;
     }
 
     _onKeyUpEvent(evt){
@@ -22,9 +22,16 @@ class Plan {
 
     async _onKeyPressEvent(evt){
         this.game.clearCache();
+        console.log(evt.charCode);
         let colideBottom = await this._isColideBottom();
         if(colideBottom){
             return;
+        }
+        else if(evt.charCode == 100){
+            if(!this._stopMoveWhenRotate)
+                this._stopMoveWhenRotate = true;
+            else
+                this._stopMoveWhenRotate = false;
         }
         if(evt.charCode != 115){
             this.sprite.loop = true;
@@ -97,9 +104,7 @@ class Plan {
             let paddingPosY = 0;
             if(v1.length() < 25){
                 this.game.remove(this);
-                 
                 return true;
-
             }
             return false;
     }
@@ -118,7 +123,9 @@ class Plan {
                 let unitX =  Math.cos(rads11)
                 let unitY =  Math.sin(rads11 );
                 this.unitVector =new Vector2D(unitX, unitY);
-                return
+                if(this._stopMoveWhenRotate){
+                    return
+                }
                 if(this.sprite.y < GAME_SETTING.MAX_POS_PLANE_TOP){
                     this.sprite.y = GAME_SETTING.MAX_POS_PLANE_TOP;
                 }

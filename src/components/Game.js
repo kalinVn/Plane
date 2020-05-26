@@ -163,8 +163,7 @@ class Game{
 		this.app.stage.addChild(this.textScore);
 		let urlPlan = "src/assets/spritesheet/fighter.json";
 		let urlId = "plan";
-		let urlRudder = "src/assets/spritesheet/rudder1.png";
-		let ruddr = new Rudder(this.app, urlRudder);
+		let ruddr = new Rudder(this.app);
 		let plan = new Plan(this, ruddr);
 		this.plan = plan;
 		let planFrames = await Loader.load(urlId, urlPlan, plan);
