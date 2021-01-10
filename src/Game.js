@@ -114,40 +114,7 @@ export default class Game{
 		this.app.stage.removeChild(this.plan.rudder.sprite);
 		this.app.stage.removeChild(this.textScore);
 		
-		//this.app.destroy(true);
-		
 		this.gameOverWindow()
-		//this.init();
-		
-		//this.app.stop();
-
-		//this.app.ticker.stop();
-		// setTimeout( async () => {
-
-		// 	// while(this.app.stage.children.length > 0){   
-		// 	// 	var child = this.app.stage.getChildAt(0);
-		// 	// 	this.app.stage.removeChild(child);
-		// 	// }
-
-		// 	this.app.stage.children.forEach( (child) => {
-
-		// 		//if( !(child instanceof TilingSprite)){
-		// 			this.app.stage.removeChild(child);
-		// 		//}
-				
-		// 	});
-			
-		// 	this.app.stage.children = [];
-		// 	//this.app.stage.removeChild(this.plan.sprite);
-		// 	this.app.stage.destroy({children:true, texture:true, baseTexture:true});
-		// 	//debugger;
-		// 	this.clearCache();
-		// 	//document.body.removeChild(this.app.view);
-		// 	//this.app = null;
-		// 	//this.init();
-		// }, 400);
-		
-		
 	}
 
 	async explode(obj){
@@ -208,8 +175,7 @@ export default class Game{
 					paddingX =	 ((-1) *(paddingX/paddingX))*(paddingX + j * 67);	
 				}
 			});
-			
-		//}
+
 	}
 
 	
@@ -337,17 +303,7 @@ export default class Game{
 		let urlId = "plan";
 		let rudder = new Rudder(this.app);
 		this.plan = new Plan(this, rudder);
-		
-		//let plan = this.plan;
-		
 		let planFrames =  this.appLoader.load(urlId, urlPlan, this.plan);
-		// let planFrames1 =  this.appLoader.load(urlId, urlPlan, this.plan);
-		// planFrames1.then( (frames) => { 
-		// 	console.log(frames)
-		// 	debugger
-		//});
-		
-		
 		planFrames.then( async(frames) => {
 			
 			let urlPilotCabine = "src/assets/spritesheet/pilotCabine.jpg";
