@@ -1,7 +1,10 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var path = require('path');
 module.exports = {
+	entry: './src/views/index.js',
 	module : {
+
 		rules : [
 			{
 				test : /\.html$/,
@@ -57,7 +60,7 @@ module.exports = {
     
 		
 		new HtmlWebPackPlugin({
-			template : "./src/index.html",
+			template : "./src/views/index.html",
 			filename : "./index.html"
 		}),
 		new MiniCssExtractPlugin({

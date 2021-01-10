@@ -1,20 +1,24 @@
+import Loader from "../lib/Loader.js";
+import {Text, Container, Graphics} from 'pixi.js';
 class Helper {
-
-	static async score(prop){
+	constructor(){
+		this.loader = new Loader();
+	}
+	async score(prop){
 		let label = prop.label;
 		let fontFamily = prop.fontFamily;
 		let fontSize = prop.fontSize;
 		let fill = prop.fill;
 		let x = prop.x;
 		let y = prop.y;
-		let text = new PIXI.Text(label,{fontFamily : fontFamily, fontSize: fontSize, fill : fill});
+		let text = new Text(label,{fontFamily : fontFamily, fontSize: fontSize, fill : fill});
 		text.x = x;
 		text.y = y;
 		return text;
 		
 	}
 
-	static async createBtn(prop){
+	async createBtn(prop){
 		var propText = prop.text;
 		var propContainer = prop.propContainer;
 		var label = propText.label;
@@ -24,7 +28,7 @@ class Helper {
 		var fill = propText.fill;
 		var x = propText.x;
 		var y = propText.y;
-		let text = new PIXI.Text(label,{fontFamily : fontFamily, fontSize: fontSize, fill : fill});
+		let text = new Text(label,{fontFamily : fontFamily, fontSize: fontSize, fill : fill});
 		text.anchor.set(0.5, 0.5);
 		var container = await this.createWindow(propContainer)
 		text.x = container.width/2;
@@ -35,7 +39,7 @@ class Helper {
 		return container;
 	}
 	
-	static async createWindow(prop){ 
+	async createWindow(prop){ 
 			var regX = prop.regX;
 			var regY = prop.regY;
 			var width = prop.width;
@@ -53,8 +57,8 @@ class Helper {
 				var colorLineStyle = prop.lineStyle.color
 			}
 			
-			let container = new PIXI.Container();
-			var overlay = new PIXI.Graphics();
+			let container = new Container();
+			var overlay = new Graphics();
 			if(prop.lineStyle){
 				overlay.lineStyle(size, colorLineStyle, 1);
 			}
@@ -72,7 +76,7 @@ class Helper {
 			
 	}
 
-	static async gameDescr(container){
+	async gameDescr(container){
 		let fontFamily = "Arial";
 		let fontSize = 12;
 		let color = "white";
@@ -90,7 +94,7 @@ class Helper {
 		let descrText;
 		let padddingBottomY = 0;
 		for (let i = 0; i < desr.length; i++){
-			descrText = new PIXI.Text(
+			descrText = new Text(
 				desr[i]
 				,{
 					fontFamily : fontFamily, 
@@ -107,7 +111,7 @@ class Helper {
 			}
 			container.addChild(descrText);
 		}
-		this.sprite = await Loader.loadSprite("src/assets/spritesheet/rudder1.png");
+		this.sprite = await this.loader.loadSprite("src/assets/spritesheet/rudder1.png");
         this.sprite.anchor.set(0.5, 0.5);
         this.sprite.x = 650;
 		this.sprite.y = 160;

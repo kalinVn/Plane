@@ -1,11 +1,10 @@
 {
-  "name": "sniper-game",
+  "name": "jump-game",
   "version": "1.0.0",
-  "description": "sniper game",
+  "description": "jump game",
   "main": "index.js",
   "dependencies": {
     "es6-promisify": "^6.1.1",
-    "gsap": "^3.2.6",
     "pixi.js": "^5.2.4",
     "regex": "^0.1.1"
   },
@@ -32,7 +31,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "test": "mocha './specs/**/*.spec.js' ",
+   
     "game": "webpack-dev-server",
     "build": "webpack"
   },
