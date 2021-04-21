@@ -58,9 +58,6 @@ class Rocket {
 			let unitX =  Math.cos(rads11)
 			let unitY =  Math.sin(rads11 );
 			this.unitVector =new Vector2D(unitX, unitY);
-			// if(this._stopMoveWhenRotate){
-			// 	return
-			// }
 			if(this.sprite.y < MAX_POS_PLANE_TOP){
 				this.sprite.y = MAX_POS_PLANE_TOP;
 			}
@@ -98,9 +95,7 @@ class Rocket {
 					let unitX =  Math.cos(rads11)
 					let unitY =  Math.sin(rads11 );
 					this.unitVector =new Vector2D(unitX, unitY);
-					// if(this._stopMoveWhenRotate){
-					// 	return
-					// }
+					
 					if(this.sprite.y < MAX_POS_PLANE_TOP){
 						this.sprite.y = MAX_POS_PLANE_TOP;
 					}

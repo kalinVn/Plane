@@ -107,11 +107,10 @@ class Plan {
             if(Math.abs(this.sprite.angle - 90) > 5 ){
                 this._planeDirectionUnitVector = this._planeDirectionVector.mult(1 / this._planeDirectionVector.length());
                 
-                let rads11 = ( this.sprite.angle - 90) * (Math.PI / 180);
-                let unitX =  Math.cos(rads11)
-                let unitY =  Math.sin(rads11 );
+                let rads = ( this.sprite.angle - 90) * (Math.PI / 180);
+                let unitX =  Math.cos(rads)
+                let unitY =  Math.sin(rads );
                 this.unitVector =new Vector2D(unitX, unitY);
-                
                 if(this.sprite.y < MAX_POS_PLANE_TOP){
                     this.sprite.y = MAX_POS_PLANE_TOP;
                 }
