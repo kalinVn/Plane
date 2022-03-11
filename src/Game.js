@@ -1,4 +1,4 @@
-import {gsap, TimelineMax} from "gsap/all";
+import {gsap, TimelineMax} from "gsap";
 import Vector2D from "./lib/Vector2D.js";
 import Helper from "./ui/Helper.js";
 import  Rock from "./units/Rock.js";
@@ -245,7 +245,7 @@ export default class Game{
 			let distPerShoot = tank.getDistPerShoot();
 			if(tank.sprite.x < 1200 - stepDistPerShoot * distPerShoot
 			&& tank.sprite.x > 0 ){
-				//tank.shoot();
+				tank.shoot();
 			}
 		});		
 		
